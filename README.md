@@ -1,9 +1,7 @@
-Boxel
-=====
+#Boxel
 Boxel is a near real-time pixelator and Minecraft codec.
 
-Usage
-=====
+##What does it do?
 Boxel pixelates and reduces the color pallete of images, websites and video at up to 24fps.
 
 You can use it to make funky pixelated artwork from existing assets to display wherever you like.
@@ -12,13 +10,16 @@ By default, Boxel creates a stream of PNG images along with JSON messages that d
 Boxel was built to act as a codec for Minecraft. You can use the data it creates to build boxelized images,
 websites and video from blocks on a Minecraft server.
 
-We've created a client library that makes it easy to connect Bukkit compatible Minecraft plugins to a Boxel server.
-Check it out [here](https://github.com/verizoncraft/Boxel-client)
+We've also created a [client library](https://github.com/verizoncraft/Boxel-client) that makes it easy to connect Bukkit compatible Minecraft plugins to a Boxel server.
 
-Getting Started
-===============
-Dependencies
-------------
+##Demo app
+The best place to start with Boxel is probably the [demo app](https://github.com/VerizonCraft/Boxel-demo).
+
+It provides docker containers for Boxel and each of its dependencies (PhantomJS,
+Redis, Crossbar), as well as an example web front-end that will have a Boxel
+service running in just a few commands.
+
+##Dependencies
 Boxel has three major dependencies:
 
 * [Crossbar](http://crossbar.io/): Used for device discovery, communication
@@ -48,12 +49,12 @@ Boxel:
 $ /usr/local/bin/phantomjs --webdriver=8910
 ```
 
-*If you're down with Docker, that's rad, and we are down with that -- we
-recommend using this Docker image to install and run your Phantom instance: [wernight/phantomjs](https://hub.docker.com/r/wernight/phantomjs/)*
+If you plan to use a Docker image to install and run your Phantom instance, we
+highly recommend using this Docker image: [wernight/phantomjs](https://hub.docker.com/r/wernight/phantomjs/).
 
 ####Redis
 Next, Boxel requires [Redis](http://redis.io) to send video data over PUB/SUB channels.
-Redis can be installed via your package manager of choice:
+Installation will vary depending on your system:
 
 #####OS X
 On OS X, redis can be installed with Homebrew:
@@ -86,8 +87,7 @@ Finally, Boxel requires a WAMP router for service discovery. We use
 pip install crossbar
 ```
 
-Installation
-------------
+##Installing Boxel
 After you've installed the dependencies listed above, install Boxel like any other Python
 package, with `pip`. 
 ```bash
@@ -95,31 +95,24 @@ package, with `pip`.
 pip install -e https://github.com/VerizonCraft/Boxel.git#egg=boxel
 ```
 
-Run it!
--------
+##Run it!
 Once the above dependencies are installed and running, you should be able to start the Boxel service like so:
 ```bash
 # substitute the correct host/port for your redis server and crossbar router
 boxel -W 50 -C palettes/5bit.yml video -R redis://localhost:6379/0 -U ws://localhost:8080/ws
 ```
 
-Demo app
---------
-Ihe best place to start with Boxel is probably the [demo app](https://github.com/VerizonCraft/Boxel-demo).
+##Usage
+See [Boxel-client](https://github.com/VerizonCraft/Boxel-client) for code
+examples of video and website rendering in Minecraft.
 
-It provides docker containers for Boxel and each of its dependencies (PhantomJS,
-Redis, Crossbar), as well as an example web front-end that will have a Boxel
-service running in just a few commands.
+If you want to check out Boxel in action, hop over to
+[verizoncraft.github.io](https://verizoncraft.github.io) to see SethBling and
+CaptainSparklez build some phones then use them to make video calls in Minecraft.
 
-Examples of Boxel
-=================
-See [Boxel-client](https://github.com/VerizonCraft/Boxel-client) for examples of video and website rendering in Minecraft.
-
-Contribute
-===========
+##Contribute
 If you'd like to contribute, check out the [contributing guidelines](https://github.com/VerizonCraft/Boxel/blob/master/CONTRIBUTING.md)
 
-License
-===========
+##License
 This repository and its code are made available under a BSD 3-Clause license, which can be found [here](https://github.com/VerizonCraft/Boxel/blob/master/LICENSE).
 
