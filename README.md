@@ -92,7 +92,7 @@ After you've installed the dependencies listed above, install Boxel like any oth
 package, with `pip`. 
 ```bash
 # using pip
-pip install -e https://github.com/VerizonCraft/Boxel.git#egg=boxel
+pip install -e git+https://github.com/VerizonCraft/Boxel.git#egg=boxel
 ```
 
 ##Run it!
